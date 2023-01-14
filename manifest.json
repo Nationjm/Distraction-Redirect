@@ -1,15 +1,11 @@
-self.addEventListener('activate', (event) => {
-    event.waitUntil(self.clients.claim());
-});
-
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        new Promise((resolve) => {
-            if (event.request.url.endsWith('/favicon.ico')) {
-                resolve(new Response());
-            } else {
-                resolve(Response.redirect("https://www.youtube.com/watch?v=cVc8v4iALW4"));
-            }
-        })
-    );
-});
+{
+    "manifest_version": 3,
+    "name": "Redirect Extension",
+    "description": "This extension redirects new tabs to a specific URL.",
+    "version": "1.0",
+    "permissions": ["tabs"],
+    "background": {
+      "service_worker": "service-worker.js"
+    }
+  }
+  
